@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="BoardSpace">
+
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="boardVO" type="main.service.BoardVO"/>
+
+	<insert id="boardDAO.saveNBoard">
+		INSERT INTO
+		hungry(unq,title,pass,name,content,hits,rdate)
+		VALUES(
+		0,
+		#title#,
+		#pass#
+		#name#
+		#content#
+		0,
+		CURRENT_TIMESTAMP() )
+
+	</insert>
+	
+	<!-- 목록 -->
+	<select id="boardDAO.listBoard" resultClass="egovMap">
+	SELECT
+			unq,
+			title,
+			name,
+			hits,
+			rdate
+	FROM hungry
+	WHERE 1=1
+	
+</select>
+	
+	
+	
+	
+	
+</sqlMap>
